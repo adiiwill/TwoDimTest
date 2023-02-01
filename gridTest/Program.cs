@@ -39,6 +39,8 @@
             Console.WriteLine($"\t{nb[0]}\t{nb[1]}\t{nb[2]}");
             Console.WriteLine($"\t{nb[3]}\tN\t{nb[4]}");
             Console.WriteLine($"\t{nb[5]}\t{nb[6]}\t{nb[7]}");
+
+            Console.WriteLine($"x:{test.Find(number)[1] + 1} y:{test.Find(number)[0] + 1}");
         }
     }
 }

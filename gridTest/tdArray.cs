@@ -23,14 +23,40 @@ namespace gridTest
             FillArray();
         }
 
+        /// <summary>
+        /// Returns an array with the following neighbour indexes: <br />
+        /// 0 1 2<br />
+        /// 3 x 4<br />
+        /// 5 6 7
+        /// </summary>
+        /// <param name="location">A number from the array</param>
+        /// <returns>int[]</returns>
         public int[] Neighbors(int location)
         {
-            // 1 2 3
-            // 4 x 5
-            // 6 7 8
             return new int[] { TOP_LEFT(location), TOP(location), TOP_RIGHT(location), LEFT(location), RIGHT(location), BOTTOM_LEFT(location), BOTTOM(location), BOTTOM_RIGHT(location) };
         }
 
+        /// <summary>
+        /// Returns a [y, x] coordinate.
+        /// </summary>
+        /// <param name="number">A number from the array</param>
+        /// <returns>int[]</returns>
+        public int[] Find(int number)
+        {
+            for (int i = 0; i < a; i++)
+            {
+                for (int j = 0; j < b; j++)
+                {
+                    if (arrayOfNumbers[i, j] == number) return new int[] { i, j };
+                }
+            }
+
+            return Array.Empty<int>();
+        }
+
+        /// <summary>
+        /// Length of the array (eg.: 5x5 array's length = 25)
+        /// </summary>
         public int Len
         {
             get
@@ -132,18 +158,6 @@ namespace gridTest
         #endregion
 
         #region PRIVATE
-        private int[] Find(int number)
-        {
-            for (int i = 0; i < a; i++)
-            {
-                for (int j = 0; j < b; j++)
-                {
-                    if (arrayOfNumbers[i, j] == number) return new int[] { i, j };
-                }
-            }
-
-            return Array.Empty<int>();
-        }
         private void FillArray()
         {
             Random rnd = new Random();
