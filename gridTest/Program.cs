@@ -31,16 +31,28 @@
             Console.Write("\nInsert a number from the list: ");
             int number = Convert.ToInt32(Console.ReadLine());
 
-            // The "nb" array will store the tdArray's neighbors. (check the Neighbor's function for more info)
-            int[] nb = test.Neighbors(number);
+            // Checks if the inputted number is in the array
+            if (number > 0 && number <= test.Len)
+            {
+                // The "nb" array will store the tdArray's neighbors. (check the Neighbor's function for more info)
+                int[] nb = test.Neighbors(number);
 
-            // Will write out the specified number's neighbors (0s are out of index indicators)
-            Console.WriteLine("\nIt's neighbors:");
-            Console.WriteLine($"\t{nb[0]}\t{nb[1]}\t{nb[2]}");
-            Console.WriteLine($"\t{nb[3]}\tN\t{nb[4]}");
-            Console.WriteLine($"\t{nb[5]}\t{nb[6]}\t{nb[7]}");
+                // Will write out the specified number's neighbors (0s are out of index indicators)
+                Console.WriteLine("\nIt's neighbors:");
+                Console.WriteLine($"\t{nb[0]}\t{nb[1]}\t{nb[2]}");
+                Console.WriteLine($"\t{nb[3]}\tN\t{nb[4]}");
+                Console.WriteLine($"\t{nb[5]}\t{nb[6]}\t{nb[7]}");
 
-            Console.WriteLine($"x:{test.Find(number)[1] + 1} y:{test.Find(number)[0] + 1}");
+                // Will display the number's coordinates
+                Console.WriteLine($"x:{test.Find(number)[1] + 1} y:{test.Find(number)[0] + 1}");
+
+                // Will display the total size of the array
+                Console.WriteLine($"Size: {test.Len}");
+            }
+            else
+            {
+                Console.WriteLine("The specified number is not in the array!");
+            }
         }
     }
 }
